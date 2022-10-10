@@ -11,3 +11,22 @@ class Solution:
             if n in hashmap:
                 stack.append(n)
         return output
+        
+        
+# OR ELSE
+
+def nextGreaterElement(nums1, nums2):
+    lst = []
+    for i in nums1:
+        n = nums2.index(i)
+        if i != nums2[-1]:
+            for j in nums2[n+1:]:
+                if i < j:
+                    lst.append(j)
+                    break
+            else:
+                lst.append(-1)
+        else:
+            lst.append(-1)
+    return lst
+
