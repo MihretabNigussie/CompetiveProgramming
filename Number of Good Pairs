@@ -1,18 +1,10 @@
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
-        freq = {}
-        goodpair = {}
-        for num in nums:
-            if num in freq:
-                freq[num]+=1
-            else:
-                freq[num]= 1
-        for num in freq:
-            frequency = freq[num]
-            pairs = frequency*(frequency-1)//2
-            goodpair[num]= pairs
-        output = 0 
-        for num in goodpair:
-            output+=goodpair[num]
-        return output
-        
+        sum = 0
+        for i, j  in enumerate(nums):
+            for k,l in enumerate(nums):
+                if i<k and j==l:
+                    print(i,k)
+                    sum += 1
+
+        return sum
