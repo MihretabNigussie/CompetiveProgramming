@@ -1,33 +1,19 @@
 class MyQueue:
 
     def __init__(self):
-        self.cont = []
-        self.temp = []
+        self.lst = []
 
     def push(self, x: int) -> None:
-        self.cont.append(x)
-        
+        self.lst.append(x)
 
     def pop(self) -> int:
-        length = len(self.cont)
-        for num in range(length):
-            self.temp.append(self.cont.pop())
-        val = self.temp.pop()
-        length = len(self.temp)
-        for num in range(length):
-            self.cont.append(self.temp.pop())
-        return val
-        
-        
-        
+        return self.lst.pop(0)
 
     def peek(self) -> int:
-        return self.cont[0]
-        
+        return self.lst[0]
 
     def empty(self) -> bool:
-        return len(self.cont)  == 0
-        
+        return self.lst == []
 
 
 # Your MyQueue object will be instantiated and called as such:
