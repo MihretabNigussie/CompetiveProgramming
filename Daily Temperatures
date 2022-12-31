@@ -8,3 +8,4 @@ class Solution:
                 res[val[1]] = index - val[1]
             stack.append([temp,index])
         return res
+
