@@ -1,13 +1,9 @@
 class Solution:
-    def sortColors(self, nums: List[int]) -> None:
+    def sortColors(self, dumps) -> None:
         """
-        Do not return anything, modify nums in-place instead.
+        Do not return anything, modify dumps in-place instead.
         """
-        the_dict = {0:0 , 1:0 , 2:0}
-        for num in nums:
-            the_dict[num]+=1
-        index = 0
-        for i in range(3):
-            for j in range(the_dict[i]):
-                nums[index]= i
-                index+=1
+        for i in range(len(dumps)):
+            for j in range(i+1, len(dumps)):
+                if dumps[i] > dumps[j]:
+                    dumps[i] , dumps[j] = dumps[j] , dumps[i]
