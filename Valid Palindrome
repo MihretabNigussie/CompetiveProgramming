@@ -1,18 +1,11 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        left ,right = 0, len(s) -1
-        
-        while left < right:
-            while left < right and not self.alphaNum(s[left]):
-                left += 1
-            while right > left and not self.alphaNum(s[right]):
-                right -= 1
-            if s[left].lower() != s[right].lower():
+        val = ''.join(filter(str.isalnum, s))
+        val = val.lower()
+        beg , end = 0 , len(val)-1
+        while beg <= end:
+            if val[beg] != val[end]:
                 return False
-            left , right = left+1, right-1
+            beg +=1
+            end -=1
         return True
-    
-    def alphaNum(self, c):
-        return (ord("A") <= ord(c) <= ord("Z") or
-               ord("a") <= ord(c) <= ord("z")or
-               ord("0") <= ord(c) <= ord("9"))
