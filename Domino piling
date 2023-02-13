@@ -1,0 +1,7 @@
+coord = input().split()
+M = int(coord[0])
+N = int(coord[1])
+ 
+def max_dominos(M,N):
+    return (M*N)//2
+print(max_dominos(M,N))
