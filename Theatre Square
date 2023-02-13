@@ -1,0 +1,13 @@
+from math import ceil
+m,n,a= list(map(int, input().split()))
+
+def flagstones(m,n,a):
+    flags = ceil(m/a)
+    if n%a ==0:
+        flags*=(n//a)
+    elif n%a !=0:
+        flags*=((n//a)+1)
+    
+    return flags
+
+print(flagstones(m,n,a))
