@@ -1,59 +1,25 @@
 class Solution:
     def calculate(self, s: str) -> int:
-        index = 0
-        stack = []
-        exp = False
-        while index < len(s):
-            char = s[index]
-            if char == " ":
-                index+=1
-                continue
-            elif char in "+-/*":
-                if char in "*/":
-                    stack.append(char)
-                    index+=1
-                    exp = True
-                    continue
+        n = len(s)
+        if s == '0':
+            return 0
+        num, sign, stack = 0, '+', []
+        for i, ch in enumerate(s):
+            if ch.isdigit():
+                num = num * 10 + ord(ch) - ord('0')
+            if (not ch.isdigit() and ch != ' ' ) or i == n-1:
+                if sign == '+':
+                    stack.append(num)
+                elif sign == '-':
+                    stack.append(-num)
+                elif sign == '*':
+                    stack.append(stack.pop()*num)
                 else:
-                    stack.append(char)
-                    index+=1
-            else:
-                num = ""
-                while index<len(s) and s[index] not in "+-*/ ":
-                    num+=s[index]
-                    index+=1
-                
-                stack.append(int(num))
-            
-            if exp:
-                num2 = stack.pop()
-                expression = stack.pop()
-                num1 = stack.pop()
-                if expression == "*":
-                    stack.append(num1*num2)
-                else:
-                    res = num1/num2
-                    stack.append(int(res))
-                exp = False
-                    
-                
-        stack2  = []
-        exp = False
-        for index,char in enumerate(stack):
-            if str(char) in "+-":
-                exp = True
-                stack2.append(char)
-                
-            elif exp:
-                num2 = char
-                expression = stack2.pop()
-                num1 = stack2.pop()
-                if expression =="+":
-                    stack2.append(num1 + num2)
-                else:
-                    stack2.append(num1 - num2)
-                exp = False
-            else:
-                stack2.append(char)
-            
-        return stack2[0]
+                    tmp = stack.pop()
+                    if tmp//num < 0 and tmp%num != 0:
+                        stack.append(tmp//num+1)
+                    else:
+                        stack.append(tmp//num)
+                sign = ch
+                num = 0
+        return sum(stack)
