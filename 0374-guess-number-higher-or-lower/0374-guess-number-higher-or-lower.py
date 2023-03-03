@@ -10,7 +10,6 @@ class Solution:
         left , right = 1, n
         while left <= right:
             myGuess = left + (right - left)// 2
-            print(myGuess)
             if guess(myGuess) == -1:
                 right = myGuess - 1
             elif guess(myGuess) == 1:
