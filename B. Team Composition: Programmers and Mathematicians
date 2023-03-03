@@ -1,0 +1,7 @@
+testCases = int(input())
+for _ in range(testCases):
+    numOfMath, numOfProgrammers = map(int, input().split())
+
+    sum_ = numOfMath + numOfProgrammers
+    let = sum_//4
+    print(min(min(numOfMath, numOfProgrammers), let))
