@@ -9,19 +9,19 @@ class Solution:
         
         result = 0
 		
-        def traverse(node):
+        def traverse(root):
             nonlocal result
             
-            if not node:
+            if not root:
                 return 0, 0
             
-            left_sum, left_count = traverse(node.left)
-            right_sum, right_count = traverse(node.right)
+            left_sum, left_count = traverse(root.left)
+            right_sum, right_count = traverse(root.right)
             
-            total_sum = node.val + left_sum + right_sum
+            total_sum = root.val + left_sum + right_sum
             total_count = 1 + left_count + right_count
             
-            if total_sum // total_count == node.val:
+            if total_sum // total_count == root.val:
                 result += 1
             
             return total_sum, total_count
