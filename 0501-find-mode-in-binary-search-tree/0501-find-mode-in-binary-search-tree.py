@@ -17,7 +17,8 @@ class Solution:
 
             traverse(root.left)
             dict[root.val] = 1 + dict.get(root.val, 0)
-            max_ = max(max_, dict[root.val])
+            if max_ < dict[root.val]:
+                max_ = max(max_, dict[root.val])
             
             traverse(root.right)
             
