@@ -8,7 +8,6 @@ class Solution:
     def findMode(self, root: Optional[TreeNode]) -> List[int]:
         dict = {}
         max_ = -1
-        ans = 0
         
         def traverse(root):
             nonlocal max_
