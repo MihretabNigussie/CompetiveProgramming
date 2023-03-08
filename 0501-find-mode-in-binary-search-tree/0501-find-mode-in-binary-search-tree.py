@@ -6,27 +6,28 @@
 #         self.right = right
 class Solution:
     def findMode(self, root: Optional[TreeNode]) -> List[int]:
-        lst = []
+        dict = {}
+        max_ = -1
+        ans = 0
         
         def traverse(root):
+            nonlocal max_
             if not root:
                 return
 
             traverse(root.left)
-            lst.append(root.val)
+            dict[root.val] = 1 + dict.get(root.val, 0)
+            if max_ < dict[root.val]:
+                max_ = max(max_, dict[root.val])
+            
             traverse(root.right)
             
         traverse(root)
-        dict = Counter(lst)
-        lst2 = []
-        maxi = -1
+       
+        lst2= []
+        
         for key in dict.keys():
-            k = dict[key]
-            if maxi < k:
-                maxi = max(k, maxi)
-                ans = key
-        for key in dict.keys():
-            if dict[key] == maxi:
+            if dict[key] == max_:
                 lst2.append(key)
                 
         return lst2
