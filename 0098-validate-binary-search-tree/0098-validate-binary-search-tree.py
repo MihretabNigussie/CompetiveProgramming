@@ -26,12 +26,10 @@ class Solution:
             lst.append(root.val)
             traverse(root.right)
             
-        traverse(root) 
-        
-        lst2 = sorted(lst)
-        mySet = set(lst2)
+        traverse(root)
+        mySet = set(lst)
 
-        if lst == lst2 and len(mySet) == len(lst2):
+        if lst == sorted(lst) and len(mySet) == len(lst):
             return True
         else:
             return False
