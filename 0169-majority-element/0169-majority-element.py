@@ -9,10 +9,21 @@ class Solution:
         #     maxCount = max(count[i], maxCount)
         # return res
         
-        dict = Counter(nums)
-        max_ = -1
-        for key in dict.keys():
-            if dict[key] > max_:
-                max_ = max(max_, dict[key])
-                ans = key
-        return ans
+        # dict = Counter(nums)
+        # max_ = -1
+        # for key in dict.keys():
+        #     if dict[key] > max_:
+        #         max_ = max(max_, dict[key])
+        #         ans = key
+        # return ans
+        
+        res , count = 0 , 0
+        for i in nums:
+            if count == 0:
+                res = i
+            if i == res:
+                count += 1
+            else:
+                count -= 1
+        return res
+        
