@@ -8,14 +8,13 @@ class Solution:
                 queue.pop()
             queue.append(i)
             
-            while (i - k + 1) > queue[0]:
+            if (i - k + 1) > queue[0]:
                 queue.popleft()
             
             if i >= k-1:
                 ans.append(nums[queue[0]])
             
         return ans
-            
             
             
             
