@@ -1,5 +1,6 @@
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
+        heights.append(-inf)
         maxArea = 0
         stack = []
         for i, h in enumerate(heights):
@@ -9,8 +10,8 @@ class Solution:
                 maxArea = max(maxArea, height* (i - index))
                 start = index
             stack.append((start, h))
-        for i, h in stack:
-            maxArea = max(maxArea, h* (len(heights) - i))
+        # for i, h in stack:
+        #     maxArea = max(maxArea, h* (len(heights) - i))
         return maxArea
                               
                 
