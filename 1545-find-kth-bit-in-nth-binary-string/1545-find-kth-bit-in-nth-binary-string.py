@@ -12,8 +12,9 @@ class Solution:
                 return ans
             if n == 1:
                 return '0'
+            answer = build(n-1)
             
-            return  build(n-1)  + '1' + inverts(build(n-1))[::-1]
+            return  answer  + '1' + inverts(answer)[::-1]
         
 
         return build(n)[k-1]
