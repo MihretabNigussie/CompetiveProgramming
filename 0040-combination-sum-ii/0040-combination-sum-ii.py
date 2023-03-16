@@ -4,7 +4,7 @@ class Solution:
         ans = []
         
         def combine(idx,curr, sum_):
-            prev =  -1
+            prev =  1
             
             if sum_ == target:
                 ans.append(curr.copy())
@@ -13,13 +13,19 @@ class Solution:
             if (idx == len(candidates) or (target - sum_) < candidates[idx]):
                 return
             
-            for i in range(idx ,len(candidates)):
-                if prev == candidates[i]:
-                    continue
-                curr.append(candidates[i])
-                combine(i + 1 , curr, candidates[i]+ sum_)
-                curr.pop()
-                prev = candidates[i]
+        
+            curr.append(candidates[idx])
+            
+            combine(idx+1 , curr, candidates[idx]+ sum_)
+            curr.pop()
+            
+            k=1
+           
+            while k+idx < len(candidates) and candidates[k+idx]==candidates[idx]:
+                k += 1
+            
+            combine(idx + k, curr, sum_)
+           
 
         candidates.sort()
         combine(0, [], 0)
