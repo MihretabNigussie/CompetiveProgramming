@@ -10,7 +10,7 @@ class Solution:
             
             for i in nums:
                 sum_ += math.ceil(i/mid)
-            print(sum_, mid)
+
                 
             if sum_ <= threshold:
                 right = mid
