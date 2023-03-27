@@ -12,10 +12,7 @@ class Solution:
                 nums[temp], nums[p] = nums[p] , nums[temp]
        
         
-        lst = []
         for i, v in enumerate(nums):
-            if nums[i] != i+1:
-                lst.append(nums[i])
+            
             if i+1 != v:
-                lst.append(i+1)
-                return lst
+                return [v, i+1]
