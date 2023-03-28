@@ -1,0 +1,23 @@
+n, m = map(int, input().split())
+
+lst1 = list(map(int, input().split()))
+lst2 = list(map(int, input().split()))
+
+lst = []
+p1 , p2 = 0,0
+counter = 0
+while p1 < n and p2 < m:
+
+    if lst1[p1] >= lst2[p2]:
+        p2 += 1
+        lst.append(counter)
+
+    else:
+        counter += 1
+        p1 += 1
+
+while p2 < m:
+    lst.append(counter)
+    p2 += 1
+print(*lst)
+    
