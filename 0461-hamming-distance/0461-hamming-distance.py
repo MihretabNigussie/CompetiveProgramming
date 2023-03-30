@@ -4,8 +4,8 @@ class Solution:
         counter = 0
         
         while x or y:
-            xNum = x % 2
-            yNum = y % 2
+            xNum = x & 1
+            yNum = y & 1
             
             if xNum != yNum:
                 counter += 1
