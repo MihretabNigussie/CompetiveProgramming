@@ -7,7 +7,7 @@ class Solution:
             xNum = x & 1
             yNum = y & 1
             
-            if xNum != yNum:
+            if xNum ^ yNum == 1:
                 counter += 1
                 
             x >>= 1
