@@ -4,13 +4,12 @@ class Solution:
         lst = []
         
         for i in range(n+1):
-            count = 0
-            while i > 0:
-                if i & 1 == 1:
-                    count += 1
+            counter = 0
+            while i :
+                counter += i & 1
                     
                 i >>= 1
-            lst.append(count)
+            lst.append(counter)
         return lst
                     
         
