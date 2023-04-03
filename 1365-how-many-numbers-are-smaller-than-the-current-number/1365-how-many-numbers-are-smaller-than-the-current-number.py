@@ -3,8 +3,10 @@ class Solution:
         
         lst = []
         
+        lst2 = sorted(nums)
+        
         for i in nums:
-            lst.append(sorted(nums).index(i))
+            lst.append(lst2.index(i))
         
         return lst
             
