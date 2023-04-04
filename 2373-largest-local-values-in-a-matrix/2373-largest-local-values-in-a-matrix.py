@@ -3,7 +3,7 @@ class Solution:
         
         length= len(grid)
 
-        ans = [[0] * (length - 2) for _ in range(length - 2)]
+        lst = [[0] * (length - 2) for _ in range(length - 2)]
 
         for i in range(length - 2):
             
@@ -13,6 +13,6 @@ class Solution:
                     
                     for l in range(3):
                         
-                        ans[i][j] = max(ans[i][j], grid[i + k][j + l])
-        return ans
+                        lst[i][j] = max(lst[i][j], grid[i + k][j + l])
+        return lst
         
