@@ -8,19 +8,18 @@ class Solution:
         
         ans = []
         lst = []
-        r_ , c_ = 0, 0
+        
         for row in range(rows):
             for col in range(cols):
                 ans.append(mat[row][col])
-        # print(ans)
-        p = 0
-        l = 0
+                
+        p,l = 0,0
+  
         for i in range(r):
             temp = ans[l:l+c]
-            # print(temp)
             lst.append(temp)
             l += c 
-        # print(lst)
+
             
         return lst
         
