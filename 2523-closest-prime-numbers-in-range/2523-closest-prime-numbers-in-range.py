@@ -30,11 +30,11 @@ class Solution:
             if lst[right]:
                 break
             right -= 1
-        # print(lst2[right])
+   
         
         for left in range(right -1,-1 ,-1):
             if lst[left]:
-                print(lst2[left], diff, lst2[right] - lst2[left])
+            
                 if diff >= lst2[right] - lst2[left]:
                     ans = [lst2[left] , lst2[right]]
                     diff = ans[1] - ans[0]
