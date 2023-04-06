@@ -1,0 +1,16 @@
+from collections import defaultdict
+n = int(input())
+grid = []
+
+for _ in range(n):
+    row = list(map(int, input().split()))
+    grid.append(row)
+
+graph = defaultdict(list)
+
+for i in range(len(grid)):
+    for j in range(len(grid[0])):
+        if grid[i][j] == 1:
+            graph[i].append(j + 1)
+    print(len(graph[i]),*graph[i])
+
