@@ -1,0 +1,23 @@
+from collections import defaultdict
+n = int(input())
+m = int(input())
+
+graph = defaultdict(list)
+    
+for _ in range(m):
+    lst = list(map(int, input().split()))
+    if lst[0] == 1:
+        graph[lst[1]].append(lst[2])
+        graph[lst[2]].append(lst[1])
+
+    if lst[0] == 2:
+        print(*graph[lst[1]])
+
+
+
+
+    
+
+
+    
+
