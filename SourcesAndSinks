@@ -1,0 +1,38 @@
+n = int(input())
+grid = []
+
+for _ in range(n):
+    row = list(map(int, input().split()))
+    grid.append(row)
+
+def SourcesAndSinks(grid):
+
+    sources = []
+    sinks = []
+
+    for i in range(len(grid)):
+        flag = True
+        for j in range(len(grid)):
+            if grid[i][j]:
+                flag = False
+                break
+
+        if flag:
+            sinks.append(i+1)
+    
+    for i in range(len(grid)):
+        flag = True
+        for j in range(len(grid)):
+            if grid[j][i]:
+                flag = False
+                break
+        if flag:
+            sources.append(i+1)
+
+
+    print(len(sources), *sources)
+    print(len(sinks), *sinks) 
+    
+    
+
+SourcesAndSinks(grid)
