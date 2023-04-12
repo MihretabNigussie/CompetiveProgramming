@@ -17,7 +17,7 @@ class Solution:
 
         for i in range(rows):
             for j in range(cols):
-                if grid[i][j] and grid[i][j] not in visited: 
+                if grid[i][j] and (i,j) not in visited: 
                     area = max(area ,dfs(i,j))
         return area
         
