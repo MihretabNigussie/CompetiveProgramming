@@ -9,14 +9,9 @@ class Solution:
         
         if not root1 and not root2:
             return None
-        if root1:
-            v1 = root1.val
-        else:
-            v1 = 0
-        if root2:
-            v2 = root2.val
-        else:
-            v2 = 0
+        
+        v1 = root1.val if root1 else 0
+        v2 = root2.val if root2 else 0
         
         root3 = TreeNode(v1 + v2)
         
@@ -27,6 +22,7 @@ class Solution:
         elif not root1:
             root3.left = self.mergeTrees(None, root2.left)
             root3.right = self.mergeTrees(None, root2.right)
+            
         else:
             root3.left = self.mergeTrees(root1.left, None)
             root3.right = self.mergeTrees(root1.right, None)
