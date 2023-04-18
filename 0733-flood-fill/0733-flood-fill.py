@@ -7,7 +7,6 @@ class Solution:
         def dfs(i , j):
             nonlocal temp
             
-            
             if (i,j) in visited or i >= len(image) or j >= len(image[0]) or i <0 or j < 0:
                 return
             visited.add((i,j))
