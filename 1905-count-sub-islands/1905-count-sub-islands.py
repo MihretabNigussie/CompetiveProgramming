@@ -1,15 +1,15 @@
 class Solution:
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
-        visited = set()
+        
         rows, cols = len(grid1), len(grid1[0])
         count = 0
         
         def dfs(i , j):
             
-            if (i,j) in visited or i >= rows or j >= cols or i <0 or j < 0 or grid2[i][j] == 0:
+            if i >= rows or j >= cols or i <0 or j < 0 or grid2[i][j] == 0:
                 return True
             
-            visited.add((i,j))
+            grid2[i][j] = 0
             flag = True
             
             if grid1[i][j] == 0:
@@ -24,7 +24,7 @@ class Solution:
 
         for i in range(rows):
             for j in range(cols):
-                if grid2[i][j] and (i,j) not in visited and dfs(i,j):
+                if grid2[i][j] and (i,j) and dfs(i,j):
                     count += 1
         return count
         
