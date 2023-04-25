@@ -18,5 +18,6 @@ class Solution:
             for j in range(cols):
                 if grid[i][j]: 
                     area = max(area ,dfs(i,j))
+                    
         return area
         
