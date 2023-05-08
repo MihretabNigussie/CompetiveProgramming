@@ -5,15 +5,14 @@ class Solution:
         queue = deque(supplies)
         lst = []
         incoming = defaultdict(int)
-        supplies = set(supplies)
         recipeSet = set(recipes)
         
         for i in range(len(recipes)):
-            
+            recipe = recipes[i]
             for ingredient in ingredients[i]:
-                graph[ingredient].append(recipes[i])
-                incoming[recipes[i]] += 1
-         
+                graph[ingredient].append(recipe)
+                incoming[recipe] += 1
+    
         while queue:
             recipe = queue.popleft()
             if recipe in recipeSet:
