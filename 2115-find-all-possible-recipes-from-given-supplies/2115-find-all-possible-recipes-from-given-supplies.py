@@ -13,10 +13,7 @@ class Solution:
             for ingredient in ingredients[i]:
                 graph[ingredient].append(recipes[i])
                 incoming[recipes[i]] += 1
-                
-                if ingredient not in incoming:
-                    incoming[ingredient] = 0
-    
+         
         while queue:
             recipe = queue.popleft()
             if recipe in recipeSet:
@@ -26,8 +23,7 @@ class Solution:
                 incoming[neighbour] -= 1
                 
                 if incoming[neighbour] == 0:
-                    queue.append(neighbour)
-                
+                    queue.append(neighbour)   
         return lst
                 
             
