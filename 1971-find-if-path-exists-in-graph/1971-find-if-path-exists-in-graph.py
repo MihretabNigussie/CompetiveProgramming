@@ -1,28 +1,33 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
-        graph = defaultdict(list)
-        queue = deque()
-        visited = set()
+        root = [i for i in range(n)]
+        rank = [1]* n
+        
+        def find(x):
+            while x != root[x]:
+                x = root[x]
+            return x
+        
+        def union(x, y):
+            rootX = find(x)
+            rootY = find(y)
+            
+            if rootX != rootY:
+                if rank[rootX] > rank[rootY]:
+                    root[rootY] = rootX
+                elif rank[rootX] < rank[rootY]:
+                    root[rootX] = rootY
+                else:
+                    root[rootY] = rootX
+                    rank[rootX] += 1
+
+        def connected(x, y):
+            return find(x) == find(y)
+        
         
         for i in edges:
-            graph[i[0]].append(i[1])
-            graph[i[1]].append(i[0])
+            union(i[0], i[1])
         
-        queue.append(source)
-        visited.add(source)
-        while queue:
-            
-            node = queue.popleft()
-            
-            visited.add(node)
-            if node == destination:
-                return True
-            for neighbour in graph[node]:
-                if neighbour not in visited:
-                    queue.append(neighbour)
-                    visited.add(neighbour)
-            
-        return False
-            
-            
-        
+        return connected(source, destination)
+
+    
