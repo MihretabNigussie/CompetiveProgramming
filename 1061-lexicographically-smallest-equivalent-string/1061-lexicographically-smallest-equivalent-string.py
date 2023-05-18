@@ -29,10 +29,10 @@ class Solution:
         
         for i in range(length):
             uf.union(s1[i], s2[i])
-            
-        lst = []
+
+        lst = ''
         
         for i in baseStr:
-            lst.append(uf.find(i))
-        return ''.join(lst)
+            lst += uf.find(i)
+        return lst
             
