@@ -4,8 +4,7 @@ class Solution:
         a , b =  inf , inf
         
         for i in nums:
-            
-            
+           
             if a >= i:
                 a = i
             elif b >= i:
