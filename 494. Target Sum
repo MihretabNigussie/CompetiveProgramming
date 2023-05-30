@@ -1,0 +1,19 @@
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        
+        dp = {}
+        
+        def dpFunc(index, total):
+            
+            if index == len(nums):
+                if total == target:
+                    return 1
+                return 0
+            
+            if (index, total) in dp:
+                return dp[(index, total)]
+            
+            dp[(index, total)] = (dpFunc(index + 1 , total + nums[index])+ dpFunc(index + 1 , total - nums[index]))
+            return dp[(index, total)]
+        
+        return dpFunc(0,0)
