@@ -1,0 +1,33 @@
+n = int(input())
+
+for _ in range(n):
+    m = int(input())
+
+    lst = list(map(int, input().split()))
+
+    right = 0 
+    flag = 0 if lst[0] < 0 else 1
+    
+    myList = []
+
+    while right < len(lst):
+        temp = float('-inf')
+        if flag:
+            
+            while right < len(lst) and lst[right] > 0:
+
+                temp = max(temp, lst[right])
+
+                right += 1
+            flag = 0
+        else:
+            while right < len(lst) and lst[right] < 0:
+
+                temp = max(temp, lst[right])
+
+                right += 1
+            flag = 1
+        myList.append(temp)
+        
+    print(sum(myList))
+    
