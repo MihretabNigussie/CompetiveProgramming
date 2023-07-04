@@ -4,8 +4,6 @@ class Solution:
         ans = 0
         mySet = set()
         left = 0
-        if not s:
-            return 0
         
         for right in range(len(s)):
             
