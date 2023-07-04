@@ -8,19 +8,19 @@ class ParkingSystem:
 
     def addCar(self, carType: int) -> bool:
         if carType == 1:
-            if self.big>0:
+            if self.big:
                 self.big-=1
                 return True
             else:
                 return False
         elif carType == 2:
-            if self.medium>0:
+            if self.medium:
                 self.medium-=1
                 return True
             else:
                 return False
         elif carType == 3:
-            if self.small>0:
+            if self.small:
                 self.small-=1
                 return True
             else:
