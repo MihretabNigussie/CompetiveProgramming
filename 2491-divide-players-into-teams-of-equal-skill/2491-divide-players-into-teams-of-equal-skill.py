@@ -8,12 +8,12 @@ class Solution:
         
         while left < right:
             
-            if skill[left] + skill[right] == temp:
-                
-                ans += skill[left] * skill[right]
-                
-            else:
+            if skill[left] + skill[right] != temp:
                 return -1
+                
+            ans += skill[left] * skill[right]
+           
+               
             left += 1
             right -= 1
         return ans
