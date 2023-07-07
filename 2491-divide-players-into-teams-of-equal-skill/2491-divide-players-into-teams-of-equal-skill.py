@@ -1,22 +1,19 @@
 class Solution:
     def dividePlayers(self, skill: List[int]) -> int:
+        
+        left ,right = 0 , len(skill)-1
         skill.sort()
-        res = 0
-        left , right = 0, len(skill)-1
         temp = skill[left] + skill[right]
+        ans = 0
         
         while left < right:
             
-            if temp == skill[left] + skill[right]:
+            if skill[left] + skill[right] == temp:
                 
-                res += skill[left] * skill[right] 
-                temp = skill[left] + skill[right]
-                left += 1
-                right -= 1
+                ans += skill[left] * skill[right]
                 
             else:
                 return -1
-        return res
-            
-                
-        
+            left += 1
+            right -= 1
+        return ans
