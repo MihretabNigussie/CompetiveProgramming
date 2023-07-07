@@ -5,7 +5,7 @@ class Solution:
         left , right = 0, len(people) - 1
         counter = 0
         
-        while right >= left:
+        while left <= right:
             if people[left] + people[right] <= limit: 
                 left += 1
             counter += 1
