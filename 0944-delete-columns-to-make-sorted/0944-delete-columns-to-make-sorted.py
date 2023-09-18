@@ -5,10 +5,10 @@ class Solution:
         lst = [i for i in strs[0]]
         mySet = set(i for i in range(len(strs[0])))
         
-        for i in range(len(strs)):
+        for i in range(1,len(strs)):
             for j in range(len(strs[0])):
                 
-                if j  in mySet:
+                if j in mySet:
                     if strs[i][j] < lst[j]:
                         ans += 1
                         mySet.remove(j)
