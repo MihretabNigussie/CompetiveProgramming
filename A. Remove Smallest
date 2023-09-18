@@ -1,0 +1,22 @@
+n = int(input())
+
+for _ in range(n):
+    m = int(input())
+    lst = list(map(int, input().split()))
+
+    if len(lst) == 1:
+        print('YES')
+    else:
+        left, right = 0, 1
+        lst.sort()
+        check = 0
+
+        while right < len(lst):
+            if lst[right]- lst[left] <= 1:
+                check += 1
+            left += 1
+            right += 1
+        if len(lst) == check + 1:
+            print('YES')
+        else:
+            print('NO')
