@@ -15,10 +15,7 @@ class Solution:
         
         mat.sort(key= lambda x: x[0])
         
-        
-        for j in range(k):
-            lst.append(mat[j][1])
-        return lst
+        return [mat[x][1] for x in range(k)]
             
             
             
