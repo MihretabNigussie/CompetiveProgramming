@@ -1,0 +1,22 @@
+n, m = map(int, input().split())
+
+lst = list(map(int, input().split()))
+
+
+
+def solution(lst, m):
+    lst.sort()
+    if m == 0:
+        return -1 if lst[0] == 1 else 1
+    if m < len(lst) and lst[m -1]  == lst[m]:
+            return -1
+    
+    return lst[m-1]
+
+print(solution(lst, m))
+    
+    
+    
+    
+
+
