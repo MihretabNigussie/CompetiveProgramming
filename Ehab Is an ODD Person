@@ -1,0 +1,12 @@
+n = int(input())
+lst = list(map(int, input().split()))
+ 
+odd = even = False
+for num in lst:
+    odd = odd or num % 2 == 1
+    even = even or num % 2 == 0
+    
+if odd and even:
+    print(*sorted(lst))
+else:
+    print(*lst)
