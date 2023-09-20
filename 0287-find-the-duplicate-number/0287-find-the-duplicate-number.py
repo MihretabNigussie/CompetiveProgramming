@@ -10,10 +10,11 @@ class Solution:
                 p += 1
             else:
                 nums[temp], nums[p] = nums[p] , nums[temp]
+        return nums[-1]
                 
         
-        for i in range(length):
-            if nums[i] != i + 1:
-                return nums[i]
+#         for i in range(length):
+#             if nums[i] != i + 1:
+#                 return nums[i]
                 
            
