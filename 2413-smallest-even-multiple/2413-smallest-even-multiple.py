@@ -3,9 +3,9 @@ class Solution:
         
         if not n % 2:
             return n
-        k = n
-        while k % 2:
-            
-            k *= 2
         
-        return k
+        while n % 2:
+            
+            n *= 2
+        
+        return n
